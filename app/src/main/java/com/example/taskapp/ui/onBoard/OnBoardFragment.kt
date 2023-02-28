@@ -28,6 +28,8 @@ class OnBoardFragment : Fragment() {
             findNavController().navigateUp()
         }
         binding.viewpager2.adapter = adapter
+        binding.indicator.setViewPager(binding.viewpager2)
+        adapter.registerAdapterDataObserver(binding.indicator.adapterDataObserver);
     }
 
 }
