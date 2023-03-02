@@ -7,13 +7,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.example.taskapp.R
+import com.example.taskapp.data.local.Pref
 import com.example.taskapp.databinding.FragmentOnBoardBinding
 import com.example.taskapp.ui.onBoard.adapter.OnBoardAdapter
 
 class OnBoardFragment : Fragment() {
-
     private lateinit var binding: FragmentOnBoardBinding
-
+    private lateinit var pref: Pref
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -24,7 +24,9 @@ class OnBoardFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        pref=Pref(requireContext())
         val adapter = OnBoardAdapter(){
+            pref.saveUserSeen()
             findNavController().navigateUp()
         }
         binding.viewpager2.adapter = adapter
