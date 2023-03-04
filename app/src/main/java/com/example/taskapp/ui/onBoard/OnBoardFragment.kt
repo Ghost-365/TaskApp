@@ -24,10 +24,10 @@ class OnBoardFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        pref=Pref(requireContext())
-        val adapter = OnBoardAdapter(){
+        pref = Pref(requireContext())
+        val adapter = OnBoardAdapter() {
             pref.saveUserSeen()
-            findNavController().navigateUp()
+            findNavController().navigate(R.id.navigation_home)
         }
         binding.viewpager2.adapter = adapter
         binding.indicator.setViewPager(binding.viewpager2)

@@ -10,8 +10,7 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.taskapp.data.local.Pref
 import com.example.taskapp.databinding.ActivityMainBinding
-import com.example.taskapp.ui.home.HomeFragment
-import javax.net.ssl.HostnameVerifier
+
 
 class MainActivity : AppCompatActivity() {
 

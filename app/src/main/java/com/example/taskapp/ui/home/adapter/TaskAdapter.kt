@@ -7,12 +7,14 @@ import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.example.taskapp.databinding.ItemTaskBinding
 import com.example.taskapp.model.Task
 
-class TaskAdapter:Adapter<TaskAdapter.TaskViewHolder>() {
+class TaskAdapter(private val onLongClick: (Task) -> Unit):Adapter<TaskAdapter.TaskViewHolder>() {
     private val data = arrayListOf<Task>()
 
-    fun addTask(task: Task){
-        data.add(0,task)
-        notifyItemChanged(0)
+    fun addTask(tasks: List<Task>){
+        data.clear()
+        data.addAll(tasks)
+        data.reverse()
+        notifyDataSetChanged()
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TaskViewHolder {
@@ -32,7 +34,10 @@ class TaskAdapter:Adapter<TaskAdapter.TaskViewHolder>() {
             binding.tvTitle.text = task.title
             binding.tvDesk.text = task.desc
 
-        }
+            itemView.setOnLongClickListener {
+                onLongClick(task)
+                false
+            }        }
     }
 
 }

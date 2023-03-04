@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView.Adapter
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.example.taskapp.databinding.ItemOnBoardBinding
 import com.example.taskapp.model.OnBoard
+import com.example.taskapp.model.Task
 import com.example.taskapp.utils.loadImage
 
 class OnBoardAdapter(private val onClick: () -> Unit) :
